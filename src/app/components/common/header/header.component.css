@@ -1,0 +1,16 @@
+
+.header {
+    background-color: #000; 
+    text-align: center;
+    padding: 5px;
+  }
+
+.header img {
+ width: 80%;
+}
+
+.header hr {
+    border: none; 
+    border-top: 2px solid #8B0000; 
+    margin: 5px 0;
+  }
