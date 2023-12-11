@@ -9,6 +9,8 @@ import { PopService } from '../../../service/app.service';
 export class MovieCardComponent implements OnInit {
   constructor(private services: PopService) {}
 
+  
+
   ngOnInit(): void {
     this.showMovies();
     this.filterByGenre(10749).subscribe((romanceMovies: any) => {
