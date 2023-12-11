@@ -1,9 +1,51 @@
+<div class="allMovies">
+  <h2>Popular</h2>
+  <div class="movies" *ngFor="let movie of moviesCard">
+   <img class="imgPoster"  [src]='getPosterUrl(movie.poster_path)' alt="{{ movie.title }}">
+  </div>
 
-<div class="movies" *ngFor="let movie of moviesCard">
-    <h2>Title: {{ movie.ids.slug }}</h2>
-    <p>IMDB ID: {{ movie.ids.imdb }}</p>
-    <p>TMDB ID: {{ movie.ids.tmdb }}</p>
-    <p>Trakt ID: {{ movie.ids.trakt }}</p>
-    </div>
+    <br />
 
+  <h2>Romance</h2>
+  <div class="genre" *ngFor="let movie of romanceMovies">
+    <img
+      class="imgPoster"
+      [src]="getPosterUrl(movie.poster_path)"
+      alt="{{ movie.title }}"
+    />
+  </div>
+  <h2>Action</h2>
+  <div class="genre" *ngFor="let movie of actionMovies">
+    <img
+      class="imgPoster"
+      [src]="getPosterUrl(movie.poster_path)"
+      alt="{{ movie.title }}"
+    />
+  </div>
+  <h2>Comedy</h2>
+  <div class="genre" *ngFor="let movie of comedyMovies">
+    <img
+      class="imgPoster"
+      [src]="getPosterUrl(movie.poster_path)"
+      alt="{{ movie.title }}"
+    />
+  </div>
 
+  <h2>Science Fiction</h2>
+  <div class="genre" *ngFor="let movie of scienceFictionMovies">
+    <img
+      class="imgPoster"
+      [src]="getPosterUrl(movie.poster_path)"
+      alt="{{ movie.title }}"
+    />
+  </div>
+
+  <h2>Horror</h2>
+  <div class="genre" *ngFor="let movie of horrorMovies">
+    <img
+      class="imgPoster"
+      [src]="getPosterUrl(movie.poster_path)"
+      alt="{{ movie.title }}"
+    />
+  </div>
+</div>

@@ -1,4 +1,20 @@
+.allMovies{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    gap: 10px;
+}
+
 .movies{
+    width: 80px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #FAEBD7;
+}
+.imgPoster{
+    margin: 5px;
+    width: 80px;
+    
+}
+h2{
     color: #FAEBD7;
 }
