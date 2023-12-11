@@ -1,20 +1,30 @@
-.allMovies{
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
-    gap: 10px;
-}
-
-.movies{
-    width: 80px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #FAEBD7;
-}
-.imgPoster{
-    margin: 5px;
-    width: 80px;
-    
-}
 h2{
     color: #FAEBD7;
 }
+
+.carouselContainer{
+background-color: #333333;
+width: 80%;
+margin-left: 30px;
+
+}
+
+.genre img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+  .genre-container {
+    max-width: 100%; 
+    overflow-x: auto; 
+  }
+  
+  .genre img {
+    width: 80px; 
+    height: auto; 
+    transition: transform 0.3s ease;
+  }
+  
+  .genre img:hover {
+    transform: scale(1.1);
+  }
