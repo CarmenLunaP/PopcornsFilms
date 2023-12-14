@@ -7,16 +7,25 @@ import { PopService } from '../../../service/app.service';
   styleUrls: ['./movie-card.component.css'],
 })
 export class MovieCardComponent implements OnInit {
-  constructor(private services: PopService) {}
 
-  
+  constructor(private services: PopService) { }
+
+  moviesCard: any[] = [];
+  moviesImg: any[] = [];
+  romanceMovies: any[] = [];
+  actionMovies: any[] = [];
+  filteredMovies: any[] = [];
+  comedyMovies: any[] = [];
+  scienceFictionMovies: any[] = [];
+  horrorMovies: any[] = [];
 
   ngOnInit(): void {
     this.showMovies();
+
     this.filterByGenre(10749).subscribe((romanceMovies: any) => {
       this.romanceMovies = romanceMovies.results;
       console.log(this.romanceMovies);
-      
+
     });
 
     this.filterByGenre(28).subscribe((actionMovies: any) => {
@@ -27,7 +36,7 @@ export class MovieCardComponent implements OnInit {
       this.comedyMovies = comedyMovies.results;
     });
 
-    
+
     this.filterByGenre(878).subscribe((scienceFictionMovies: any) => {
       this.scienceFictionMovies = scienceFictionMovies.results;
     });
@@ -37,14 +46,6 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  moviesCard: any[] = [];
-  moviesImg: any[] = [];
-  romanceMovies: any[] = [];
-  actionMovies: any[] = [];
-  filteredMovies: any[] = [];
-  comedyMovies: any[]=[];
-  scienceFictionMovies: any[]=[];
-  horrorMovies: any[]=[];
 
   showMovies() {
     this.services.getService().subscribe((data: any) => {
@@ -54,15 +55,15 @@ export class MovieCardComponent implements OnInit {
   }
 
   getPosterUrl(posterPath: string): string {
-       const baseUrl = 'https://image.tmdb.org/t/p/w500'; 
-       return `${baseUrl}${posterPath}`;
-     } 
+    const baseUrl = 'https://image.tmdb.org/t/p/w500';
+    return `${baseUrl}${posterPath}`;
+  }
 
   filterByGenre(genreId: number) {
     // Devuelve el observable para que pueda ser suscrito en el componente
-  
+
     return this.services.getMoviesByGenre(genreId);
-    
+
   }
 }
 
@@ -78,7 +79,7 @@ export class MovieCardComponent implements OnInit {
 //   constructor(private services: PopService) {}
 //   ngOnInit(): void {
 //     this.showMovies();
-   
+
 //   }
 //   moviesCard: any[]= [];
 //   moviesImg: any[]=[];
@@ -89,22 +90,22 @@ export class MovieCardComponent implements OnInit {
 //   showMovies() {
 //     this.services.getService().subscribe((data:any) => {
 //       this.moviesCard = data.results;
-    
+
 
 //       console.log(this.moviesCard);
 //     });
 //   }
 
 //   getPosterUrl(posterPath: string): string {
-//     const baseUrl = 'https://image.tmdb.org/t/p/w500'; 
+//     const baseUrl = 'https://image.tmdb.org/t/p/w500';
 //     return `${baseUrl}${posterPath}`;
-// } 
+// }
 
 // filterByGenre(genreId: number) {
 //   // Filtra las películas por género
 //   this.services.getMoviesByGenre(genreId).subscribe((data: any) => {
 //     this.filteredMovies = data.results;
-//     return 
+//     return
 //   });
 // }
 

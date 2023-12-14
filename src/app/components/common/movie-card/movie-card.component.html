@@ -1,66 +1,13 @@
-<div class="allMovies">
+<div class="carousel-container">
   <h2>Popular</h2>
-
-  <div class="carouselContainer">
-  <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-bs-ride="carousel"
-  >
-    <div class="carousel-indicators">
-      <button
-        *ngFor="let movie of moviesCard; let i = index"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        [attr.data-bs-slide-to]="i"
-        [class.active]="i === 0"
-        [attr.aria-current]="i === 0 ? 'true' : null"
-        [attr.aria-label]="'Slide ' + (i + 1)"
-      ></button>
-    </div>
-    <div class="carousel-inner">
-      <div
-        class="carousel-item"
-        *ngFor="let movie of moviesCard; let i = index"
-        [class.active]="i === 0"
-      >
-        <img
-          class="d-block w-100"
-          [src]="getPosterUrl(movie.poster_path)"
-          [alt]="movie.title"
-        />
-      </div>
-    </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  <app-carousel [moviesCard]="moviesCard"></app-carousel>
 </div>
 
 <h2>Romance</h2>
 <div class="genre-container">
   <div class="d-flex flex-nowrap">
     <div class="genre d-inline-block mx-1" *ngFor="let movie of romanceMovies">
-      <img
-        class="imgPoster"
-        [src]="getPosterUrl(movie.poster_path)"
-        alt="{{ movie.title }}"
-      />
+      <img class="imgPoster" [src]="getPosterUrl(movie.poster_path)" alt="{{ movie.title }}" />
     </div>
   </div>
 </div>
@@ -70,18 +17,14 @@
 <div class="genre-container">
   <div class="d-flex flex-nowrap">
     <div class="genre d-inline-block mx-1" *ngFor="let movie of actionMovies">
-      <img
-        class="imgPoster"
-        [src]="getPosterUrl(movie.poster_path)"
-        alt="{{ movie.title }}"
-      />
+      <img class="imgPoster" [src]="getPosterUrl(movie.poster_path)" alt="{{ movie.title }}" />
     </div>
   </div>
 </div>
 
 
 
-<!-- 
+<!--
   <h2>Romance</h2>
   <div class="genre" *ngFor="let movie of romanceMovies">
     <img

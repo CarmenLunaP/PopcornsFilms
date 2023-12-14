@@ -7,13 +7,15 @@ import { HomeComponent } from './components/views/home/home.component';
 import { MovieCardComponent } from './components/common/movie-card/movie-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/common/header/header.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MovieCardComponent,
-    HeaderComponent
+    HeaderComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
