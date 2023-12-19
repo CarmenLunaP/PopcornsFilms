@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Movie, ResponseApi } from '../interfaces/movie.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,14 +9,15 @@ export class PopService {
   private apiKey = '70fc1f7645036894d03ea96c83955da0';
   private baseUrl = 'https://api.themoviedb.org/3';
   constructor(private http: HttpClient) {}
-  getService(): Observable<any> {
+
+  getService(): Observable<ResponseApi> {
     const params = new HttpParams().set('api_key', this.apiKey);
-    return this.http.get(`${this.baseUrl}/movie/popular`, { params });
+    return this.http.get<ResponseApi>(`${this.baseUrl}/movie/popular`, { params });
   }
 
   getMoviesByGenre(genreId: number): Observable<any> {
     const params = new HttpParams().set('api_key', this.apiKey).set('with_genres', genreId.toString());
-    return this.http.get(`${this.baseUrl}/discover/movie`, { params });
+    return this.http.get<any>(`${this.baseUrl}/discover/movie`, { params });
   }
 }
 

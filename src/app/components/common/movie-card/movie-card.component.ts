@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PopService } from '../../../service/app.service';
+import { Movie } from 'src/app/interfaces/movie.interface';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,21 +11,21 @@ export class MovieCardComponent implements OnInit {
 
   constructor(private services: PopService) { }
 
-  moviesCard: any[] = [];
-  moviesImg: any[] = [];
-  romanceMovies: any[] = [];
-  actionMovies: any[] = [];
-  filteredMovies: any[] = [];
-  comedyMovies: any[] = [];
-  scienceFictionMovies: any[] = [];
-  horrorMovies: any[] = [];
+  moviesCard: Movie[] = [];
+  moviesImg: Movie[] = [];
+  romanceMovies: Movie[] = [];
+  actionMovies: Movie[] = [];
+  filteredMovies: Movie[] = [];
+  comedyMovies: Movie[] = [];
+  scienceFictionMovies: Movie[] = [];
+  horrorMovies: Movie[] = [];
 
   ngOnInit(): void {
     this.showMovies();
 
     this.filterByGenre(10749).subscribe((romanceMovies: any) => {
       this.romanceMovies = romanceMovies.results;
-      console.log(this.romanceMovies);
+      console.log(this.romanceMovies, 'Romance');
 
     });
 
@@ -48,9 +49,11 @@ export class MovieCardComponent implements OnInit {
 
 
   showMovies() {
-    this.services.getService().subscribe((data: any) => {
+    this.services.getService().subscribe((data) => {
       this.moviesCard = data.results;
-      console.log(this.moviesCard);
+      console.log(data);
+      console.log(this.moviesCard, 'data tal cual');
+      console.log(this.moviesCard, 'populares');
     });
   }
 
