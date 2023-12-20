@@ -23,27 +23,27 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
     this.showMovies();
 
-    this.filterByGenre(10749).subscribe((romanceMovies: any) => {
-      this.romanceMovies = romanceMovies.results;
+    this.filterByGenre(10749).subscribe((data) => {
+      this.romanceMovies = data.results;
       console.log(this.romanceMovies, 'Romance');
 
     });
 
-    this.filterByGenre(28).subscribe((actionMovies: any) => {
-      this.actionMovies = actionMovies.results;
+    this.filterByGenre(28).subscribe((data) => {
+      this.actionMovies = data.results;
     });
 
-    this.filterByGenre(35).subscribe((comedyMovies: any) => {
-      this.comedyMovies = comedyMovies.results;
+    this.filterByGenre(35).subscribe((data) => {
+      this.comedyMovies = data.results;
     });
 
 
-    this.filterByGenre(878).subscribe((scienceFictionMovies: any) => {
-      this.scienceFictionMovies = scienceFictionMovies.results;
+    this.filterByGenre(878).subscribe((data) => {
+      this.scienceFictionMovies = data.results;
     });
 
-    this.filterByGenre(27).subscribe((horrorMovies: any) => {
-      this.horrorMovies = horrorMovies.results;
+    this.filterByGenre(27).subscribe((data) => {
+      this.horrorMovies = data.results;
     });
   }
 
