@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PopService } from '../../../service/app.service';
 import { Movie } from 'src/app/interfaces/movie.interface';
 
@@ -10,8 +10,8 @@ import { Movie } from 'src/app/interfaces/movie.interface';
 export class MovieCardComponent implements OnInit {
 
   constructor(private services: PopService) { }
-
-  moviesCard: Movie[] = [];
+  @Input() moviesCard: Movie[] = [];
+  // moviesCard: Movie[] = [];
   moviesImg: Movie[] = [];
   romanceMovies: Movie[] = [];
   actionMovies: Movie[] = [];
@@ -21,7 +21,7 @@ export class MovieCardComponent implements OnInit {
   horrorMovies: Movie[] = [];
 
   ngOnInit(): void {
-    this.showMovies();
+    // this.showMovies();
 
     this.filterByGenre(10749).subscribe((data) => {
       this.romanceMovies = data.results;
@@ -48,14 +48,14 @@ export class MovieCardComponent implements OnInit {
   }
 
 
-  showMovies() {
-    this.services.getService().subscribe((data) => {
-      this.moviesCard = data.results;
-      console.log(data);
-      console.log(this.moviesCard, 'data tal cual');
-      console.log(this.moviesCard, 'populares');
-    });
-  }
+  // showMovies() {
+  //   this.services.getService().subscribe((data) => {
+  //     this.moviesCard = data.results;
+  //     console.log(data);
+  //     console.log(this.moviesCard, 'data tal cual');
+  //     console.log(this.moviesCard, 'populares');
+  //   });
+  // }
 
   getPosterUrl(posterPath: string): string {
     const baseUrl = 'https://image.tmdb.org/t/p/w500';
